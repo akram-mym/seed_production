@@ -1,0 +1,46 @@
+{% extends 'common_code/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+  <h1 class="mb-4 text-center">Budget Information</h1>
+
+  {% if form %}
+    <div class="table-responsive">
+      <table class="table table-striped table-hover table-bordered shadow-sm align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Subcode</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Company</th>
+            <th scope="col" class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for budget in form %}
+            <tr>
+              <td>{{ budget.b_id }}</td>
+              <td>{{ budget.subcode }}</td>
+              <td>{{ budget.amount }}</td>
+              <td>{{ budget.com_id }}</td>
+              <td class="text-center">
+                <a href="{% url 'budget_edit' budget.id %}" class="btn btn-sm btn-primary">Edit</a>
+                <a href="{% url 'budget_delete' budget.id %}" class="btn btn-sm btn-danger"
+                   onclick="return confirm('Are you sure you want to delete this entry?');">
+                   Delete
+                </a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <div class="alert alert-info text-center">
+      No budget entries available.
+    </div>
+  {% endif %}
+</div>
+{% endblock %}
+
+

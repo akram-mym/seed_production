@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Company Entry Form</title>
+</head>
+<body>
+    <div class="container mt-5">
+    
+    <form class="col-6 mx-auto card p-3 shadow-lg" method = "post" enctype="multipart/form-data">
+        <H1 class='position-fixed-top text-sm-center text-bg-primary py-2 m-lg-2' > Company Entry Form</H1>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+</body>
+</html>

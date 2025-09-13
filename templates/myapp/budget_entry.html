@@ -1,0 +1,17 @@
+
+{% extends 'common_code/base.html' %}
+
+
+
+{% block title %}Budget Entry{% endblock %}
+
+{% block content %}
+<a href={% url 'budget_info'  %}>Budget Info</a>
+<a href={% url 'search_budget'  %}>Budget query</a>
+<h3>Budget Entry Form</h3>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>
+{% endblock %}
